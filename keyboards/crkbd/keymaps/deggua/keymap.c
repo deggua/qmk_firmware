@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, KC_PGUP, XXXXXXX, KC_M_WNDUP, XXXXXXX, XXXXXXX,                    KC_APP, KC_HOME,   KC_UP,  KC_END, KC_SCLN,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_PGDN, KC_M_WNDLT, KC_M_WNDDN, KC_M_WNDRT, XXXXXXX,             XXXXXXX, KC_LEFT, KC_DOWN,KC_RIGHT, KC_SLSH, KC_PSCR,
+      KC_LSFT, KC_PGDN, KC_M_WNDLT, KC_M_WNDDN, KC_M_WNDRT, XXXXXXX,             KC_PSCR, KC_LEFT, KC_DOWN,KC_RIGHT, KC_SLSH, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, _______,  KC_SPC,     KC_ENT, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
@@ -112,7 +112,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			}
 			return false;
 		} break;
-		
+
 		// go to lower layer, if both layers active go to adjust layer
 		case LOWER: {
 			if (record->event.pressed) {
@@ -124,28 +124,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			}
 			return false;
 		} break;
-		
+
 		// go back (ALT + LEFT)
         case KC_M_BACK: {
 			if (record->event.pressed) {
 				SEND_STRING(SS_LALT(SS_TAP(X_LEFT)));
 			}
 		} break;
-		
+
 		// go forward (ALT + RIGHT)
         case KC_M_FRWD: {
 			if (record->event.pressed) {
 				SEND_STRING(SS_LALT(SS_TAP(X_RIGHT)));
 			}
 		} break;
-		
+
 		// toggle block comment (vscode)
         case KC_M_BLKC: {
 			if (record->event.pressed) {
 				SEND_STRING(SS_LALT(SS_LSFT("a")));
 			}
         } break;
-		
+
 		// move line down (vscode)
         case KC_M_MVLD: {
 			if (record->event.pressed) {
@@ -156,7 +156,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				unregister_code(KC_LALT);
 			}
         } break;
-		
+
 		// move line up (vscode)
         case KC_M_MVLU: {
 			if (record->event.pressed) {
@@ -167,21 +167,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				unregister_code(KC_LALT);
 			}
         } break;
-		
+
 		// peek definition (vscode)
         case KC_M_PKDEF: {
 			if (record->event.pressed) {
 				SEND_STRING(SS_LALT(SS_TAP(X_F12)));
 			}
 		} break;
-		
+
 		// find references (vscode)
         case KC_M_FNREF: {
 			if (record->event.pressed) {
 				SEND_STRING(SS_LSFT(SS_TAP(X_F12)));
 			}
 		} break;
-		
+
 		// move window down (enters window move state)
         case KC_M_WNDDN: {
 			if (record->event.pressed) {
@@ -190,7 +190,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				in_move_window = true;
 			}
         } break;
-		
+
 		// move window left (enters window move state)
         case KC_M_WNDLT: {
 			if (record->event.pressed) {
@@ -199,7 +199,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				in_move_window = true;
 			}
         } break;
-		
+
 		// move window right (enters window move state)
         case KC_M_WNDRT: {
 			if (record->event.pressed) {
@@ -208,7 +208,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				in_move_window = true;
 			}
 		} break;
-		
+
 		// move window up (enters window move state)
         case KC_M_WNDUP: {
 			if (record->event.pressed) {
@@ -217,11 +217,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				in_move_window = true;
 			}
         } break;
-		
+
         default:
             break;
     }
-	
+
 	return true;
 }
 
