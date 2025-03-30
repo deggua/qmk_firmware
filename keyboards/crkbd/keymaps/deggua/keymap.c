@@ -41,6 +41,8 @@ enum layers {
 	L_ADJUST,
 };
 
+// TODO: ALT + TAB when LGUI + TAB is pressed on L_BASE
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
