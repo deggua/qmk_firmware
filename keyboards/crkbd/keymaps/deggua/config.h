@@ -26,8 +26,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define TAPPING_TERM 100
 
 /* --- Set Master Hand --- */
-// #define MASTER_LEFT
-#define MASTER_RIGHT
+#define MASTER_LEFT
+// #define MASTER_RIGHT
 // #define EE_HANDS
 
 #ifdef RGBLIGHT_ENABLE
@@ -49,3 +49,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USB_POLLING_INTERVAL_MS 1
 #define QMK_KEYS_PER_SCAN 12
+
+#define SPLIT_USB_DETECT
